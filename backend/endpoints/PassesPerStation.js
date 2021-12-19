@@ -38,6 +38,17 @@ function getData (req,res){
         con.query(myquery, function (err, result, fields){
             if (err) throw err;
             res.send(JSON.stringify({"StationID" : req.params.stationID }) + JSON.stringify(result[2]) + JSON.stringify({"PeriodFrom" : date_from , "PeriodTo" : date_to}) + JSON.stringify(result[1]) + JSON.stringify(result[3]) + JSON.stringify(result[0]));
+            let  json = {StationID : req.params.stationID , StationOperator : result[2] , PeriodFrom : date_from , PeriodTo : date_to, NumberOfPasses : result[1], PassesList : result[0]};
+            if (req.query.format == 'json')
+              res.send(json);
+            else {
+              const parser = require('json-2-csv');
+              let jsonArr = [json];
+              parser.json2csv(jsonArr,function(err,csv) {
+                if (err) throw err;
+                res.send(csv);
+              });
+            }
         });
         con.end(function(err) {
             if (err) {

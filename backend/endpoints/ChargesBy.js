@@ -21,7 +21,17 @@ function getData4 (req,res){
                          + "AND passes.stationRef = stations.stationID AND passes.vehicleRef = vehicles.vehicleID AND timestamp BETWEEN " + "'" + date_from + "'" + "AND" + "'" + date_to + "'" + "GROUP BY tagProvider; SELECT CURRENT_TIMESTAMP as RequestTimestamp;";
             con.query(myquery4, function (err, result, fields){
                 if (err) throw err;
-                res.send(JSON.stringify({"op_ID" : req.params.op_ID }) + JSON.stringify(result[1]) + JSON.stringify({"PeriodFrom" : date_from , "PeriodTo" :  date_to}) + JSON.stringify(result[0]));
+                let json = {op_ID : req.params.op_ID, RequestTimestamp: result[1], PeriodFrom : date_from , PeriodTo :  date_to , PassesList: result[0]};
+                if (req.query.format == 'json')
+                  res.send(json);
+                else {
+                  const parser = require('json-2-csv');
+                  let jsonArr = [json];
+                  parser.json2csv(jsonArr,function(err,csv) {
+                    if (err) throw err;
+                    res.send(csv);
+                  });
+                }
             });
             con.end(function(err) {
                 if (err) {
