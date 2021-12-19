@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "2d374885-41b0-4b23-b083-4091ae182ebe",
+		"name": "RestApi",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests a user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PassesPerStation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/PassesPerStation/stationID/date_from/date_to",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"PassesPerStation",
+						"stationID",
+						"date_from",
+						"date_to"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PassesPerStation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/PassesPerStation/AO00/20200101/20210101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"PassesPerStation",
+								"AO00",
+								"20200101",
+								"20210101"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "PassesCost",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/PassesCost/op1_ID/op2_ID/date_from/date_to",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"PassesCost",
+						"op1_ID",
+						"op2_ID",
+						"date_from",
+						"date_to"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PassesCost",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/PassesCost/aodos/egnatia/20200101/20210101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"PassesCost",
+								"aodos",
+								"egnatia",
+								"20200101",
+								"20210101"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "217"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d9-+w/BxqaR8qxMryjbHeoJhDlF8dk\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Dec 2021 22:26:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "op1_ID,op2_ID,RequestTimestamp,PeriodFrom,PeriodTo,PassesList\nop1_ID,op2_ID,\"[{\"\"RequestTimestamp\"\":\"\"2021-12-19T22:26:00.000Z\"\"}]\",date-_f-ro 00:00:00,date-_t-o 00:00:00,\"[{\"\"NumberOfPasses\"\":0,\"\"PassesCost\"\":null}]\""
+				}
+			]
+		},
+		{
+			"name": "PassesAnalysis",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/PassesAnalysis/op1_ID/op2_ID/date_from/date_to",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"PassesAnalysis",
+						"op1_ID",
+						"op2_ID",
+						"date_from",
+						"date_to"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PassesAnalysis",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/PassesAnalysis/aodos/egnatia/20200101/20210101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"PassesAnalysis",
+								"aodos",
+								"egnatia",
+								"20200101",
+								"20210101"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "215"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d7-Fpo0KAgeYf6yDu56eShtEE5hZ2Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Dec 2021 22:27:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "op1_ID,op2_ID,RequestTimestamp,PeriodFrom,PeriodTo,NumberOfPasses,PassesList\nop1_ID,op2_ID,\"[{\"\"RequestTimestamp\"\":\"\"2021-12-19T22:27:14.000Z\"\"}]\",date-_f-ro 00:00:00,date-_t-o 00:00:00,\"[{\"\"NumberOfPasses\"\":0}]\",[]"
+				}
+			]
+		},
+		{
+			"name": "ChargesBy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/ChargesBy/op_ID/date_from/date_to",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"ChargesBy",
+						"op_ID",
+						"date_from",
+						"date_to"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ChargesBy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/ChargesBy/aodos/20200101/20210101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"ChargesBy",
+								"aodos",
+								"20200101",
+								"20210101"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "157"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9d-NCUNQb/cG1M+zrqZg+ih+7imfQ4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Dec 2021 22:28:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "op_ID,RequestTimestamp,PeriodFrom,PeriodTo,PassesList\nop_ID,\"[{\"\"RequestTimestamp\"\":\"\"2021-12-19T22:28:08.000Z\"\"}]\",date-_f-ro 00:00:00,date-_t-o 00:00:00,[]"
+				}
+			]
+		},
+		{
+			"name": "ResetStations",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/resetstations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"resetstations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResetVehicles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/resetvehicles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"resetvehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResetPasses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/resetpasses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"resetpasses"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
