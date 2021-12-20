@@ -5,7 +5,7 @@ var mysql = require('mysql');
 function healthcheck (req,res){
     var con = mysql.createConnection({
         host: "localhost",
-        user: "root",
+        user: "art",
         password: "password",
         database: "freedomepass",
         multipleStatements: true
@@ -13,10 +13,10 @@ function healthcheck (req,res){
 
     con.connect(function(err){
         if (err || con.state === 'disconnected')  {
-          return res.send(JSON.stringify({"status":"failed","dbconnection":"Server=localhost;Database=freedomepass;Uid=root;Pwd=password;" }));
+          return res.send(JSON.stringify({"status":"failed","dbconnection":"Server=localhost;Database=freedomepass;Uid=art;Pwd=password;" }));
         }
         console.log("connected");
-        res.send(JSON.stringify({"status":"OK","dbconnection":"Server=localhost;Database=freedomepass;Uid=root;Pwd=password;"  }));
+        res.send(JSON.stringify({"status":"OK","dbconnection":"Server=localhost;Database=freedomepass;Uid=art;Pwd=password;"  }));
 
         con.end(function(err) {
             if (err) {
