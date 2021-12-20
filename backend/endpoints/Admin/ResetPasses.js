@@ -30,5 +30,5 @@ function resetpasses (req,res){
     });
 }
 
-router.post('/ResetPasses', resetpasses);
+router.post('/admin/resetpasses', resetpasses);
 module.exports = router;
