@@ -29,5 +29,5 @@ function resetvehicles (req,res){
         });
     });
 }
-router.post('/ResetVehicles', resetvehicles);
+router.post('/admin/resetvehicles', resetvehicles);
 module.exports = router;
