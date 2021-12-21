@@ -7,7 +7,7 @@ git clone https://github.com/ntua/TL21-19
 cd TL21-19-master
 ### Import database:
 1. Eγκατάσταση MySql Server και δημιουργία λογαριασμού με όνομα root και κωδικό root.
-2. Σύνδεση σε MySql Server και δημιουργία κενού database με όνομα freedomepass:
+2. Σύνδεση σε MySql Server και δημιουργία κενού database με όνομα freedomepass:                                                                                                     
 cmd:     mysql - u root - p
          (Εισαγωγή κωδικού)
 mysql>   CREATE DATABASE freedomepass;
