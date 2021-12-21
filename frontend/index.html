@@ -1,0 +1,80 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style>
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: purple;
+  background-color: transparent;
+  text-decoration: none;
+}
+h1 {text-align: center; font-style:'Georgia'; font-size:16px}
+p {text-align: justify; text-justify: inter-word; font-size:14px}
+</style>
+<body style="background-color:#e6eff0">
+
+<h1><b>Διαχειριστικά endpoints</b></h1>
+<p1 style="font-family:'Cambria'">
+1) <a href="http://192.168.2.7:9103/interoperability/api/Admin/HealthCheck" target="_blank">
+http://192.168.2.7:9103/interoperability/api/Admin/HealthCheck </a>
+<p> <b>Parameters:</b> none <br></p>
+2) <a href="http://192.168.2.7:9103/interoperability/api/Admin/ResetPasses" target="_blank">
+http://192.168.2.7:9103/interoperability/api/Admin/ResetPasses </a>
+<p><b>Parameters:</b> none <br></p>
+3) <a href="http://192.168.2.7:9103/interoperability/api/Admin/ResetStations" target="_blank">
+http://192.168.2.7:9103/interoperability/api/Admin/ResetStations </a>
+<p><b>Parameters:</b> none <br></p>
+4) <a href="http://192.168.2.7:9103/interoperability/api/Admin/ResetVehicles" target="_blank">
+http://192.168.2.7:9103/interoperability/api/Admin/ResetVehicles </a>
+<p><b>Parameters:</b> none <br></p>
+</p1>
+
+<br><br>
+
+<h1><b>Λειτουργία συστήματος</b></h1>
+<p1 style="font-family:'Cambria'">
+a) <a href="http://192.168.2.7:9103/interoperability/api/PassesPerStation/" target="_blank">
+http://192.168.2.7:9103/interoperability/api/PassesPerStation/ </a>
+<p><b>Description:</b> Λίστα με την ανάλυση των διελεύσεων (Passes) για τον σταθμό διοδίων και για την
+περίοδο που δίνονται στο URL.
+<br><b>Parameters:</b> stationID, date_from, date_to<br></p>
+
+<!--<form action="/action_page.php">
+  <label for="stationID">StationID:</label>
+  <input type="text" id="stationID" name="stationID">
+  <label for="datefrom">Date From:</label>
+  <input type="text" id="datefrom" name="datefrom">
+  <label for="dateto">Date To:</label>
+  <input type="text" id="dateto" name="dateto">
+  <input type="submit" value="Submit">
+</form><br>
+-->
+b) <a href="http://192.168.2.7:9103/interoperability/api/PassesAnalysis/" target="_blank">
+http://192.168.2.7:9103/interoperability/api/PassesAnalysis/ </a>
+<p><b> Description:</b> Λίστα με την ανάλυση ανά σημείο των γεγονότων διέλευσης που πραγματοποιήθηκαν
+με tag του op2_ID σε σταθμούς του op1_ID.
+<br><b> Parameters:</b> op1_ID, op2_ID, date_from, date_to<br></p>
+
+c) <a href="http://192.168.2.7:9103/interoperability/api/PassesCost/" target="_blank">
+http://192.168.2.7:9103/interoperability/api/PassesCost/ </a>
+<p><b>Description:</b>Επιστρέφεται ο αριθμός των γεγονότων διέλευσης που πραγματοποιήθηκαν με tag του op2_ID σε
+σταθμούς του op1_ID, καθώς και το κόστος τους, δηλαδή το ποσό που ο op2_ID οφείλει στον op1_ID,
+για τη δοσμένη περίοδο.
+<br><b>Parameters:</b> op1_ID, op2_ID, date_from, date_to<br></p>
+
+d) <a href="http://192.168.2.7:9103/interoperability/api/ChargesBy/" target="_blank">
+http://192.168.2.7:9103/interoperability/api/ChargesBy/ </a>
+<p><b>Description:</b>Επιστρέφεται ο αριθμός των γεγονότων διέλευσης που πραγματοποιήθηκαν σε σταθμούς του op_ID,
+από οχήματα όλων των άλλων operators, καθώς και το κόστος τους, δηλαδή το ποσό που καθένας
+από τους λοιπούς operators οφείλει στον Operator op_ID, για τη δοσμένη περίοδο.
+<br><b>Parameters:</b> op_ID, date_from, date_to<br></p>
+</p1>
+
+</body>
