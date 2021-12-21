@@ -3,25 +3,25 @@ const port = 9103;
 const bodyparser = require('body-parser')
 const app = express()
 const baseURL = '/interoperability/api';
-//app.use(bodyparser.json()) //for app.post & fetch body as json
+app.use(bodyparser.json())
 app.listen(port, () => {
   console.log("hi");
 });
 
+var path = require("path");
 app.get(baseURL,(req,res) =>{
-  res.sendFile( __dirname + "/front-end/" + "index.html" );
+  res.sendFile(path.join(__dirname, '..', '/frontend/', 'index.html'));
 });
 
-const PassesPerStation = require("./endpoints/PassesPerStation.js");
-const PassesAnalysis = require("./endpoints/PassesAnalysis.js");
-const PassesCost = require("./endpoints/PassesCost.js");
-const ChargesBy = require("./endpoints/ChargesBy.js");
-const Healthcheck = require("./endpoints/Admin/healthcheck.js");
-const ResetPasses = require("./endpoints/Admin/ResetPasses.js");
-const ResetStations = require("./endpoints/Admin/ResetStations.js");
-const ResetVehicles = require("./endpoints/Admin/ResetVehicles.js");
+const PassesPerStation = require("../backend/endpoints/PassesPerStation.js");
+const PassesAnalysis = require("../backend/endpoints/PassesAnalysis.js");
+const PassesCost = require("../backend/endpoints/PassesCost.js");
+const ChargesBy = require("../backend/endpoints/ChargesBy.js");
+const Healthcheck = require("../backend/endpoints/Admin/healthcheck.js");
+const ResetPasses = require("../backend/endpoints/Admin/ResetPasses.js");
+const ResetStations = require("../backend/endpoints/Admin/ResetStations.js");
+const ResetVehicles = require("../backend/endpoints/Admin/ResetVehicles.js");
 
-//bind all endpoints to app router
 app.use(baseURL, PassesPerStation);
 app.use(baseURL, PassesAnalysis);
 app.use(baseURL, PassesCost);
