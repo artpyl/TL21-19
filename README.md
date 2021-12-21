@@ -9,7 +9,7 @@ cd TL21-19-master
 1. Eγκατάσταση MySql Server και δημιουργία λογαριασμού με όνομα root και κωδικό root.
 2. Σύνδεση σε MySql Server και δημιουργία κενού database με όνομα freedomepass:                                                                                                     
 cmd:     mysql - u root - p
-         (Εισαγωγή κωδικού)
+         (Εισαγωγή κωδικού)                                                                                                                                                         
 mysql>   CREATE DATABASE freedomepass;
 3. Εντός του φακέλου TL21-19-master/database εκτέλεση στο cmd:
 mysql -p -u root freedomepass < data-dump.sql
