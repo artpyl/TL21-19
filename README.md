@@ -19,10 +19,12 @@ cd TL21-19-master/api
 npm install body-parser                                                                                                                                                             
 npm install express                                                                                                                                                                
 npm install path                                                                                                                                                                   
+                                                               
 cd ../backend                                                                                                                                                                      
 npm install express                                                                                                                                                                 
 npm install mysql                                                                                                                                                                   
-npm install json-2-csv                                                                                                                                                             
+npm install json-2-csv    
+                                    
 cd ../api                                                                                                                                                                           
 node ./index.js                                                                                                                                                                              
 
