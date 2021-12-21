@@ -11,7 +11,7 @@ cd TL21-19-master
 cmd:     mysql - u root - p
          (Εισαγωγή κωδικού)                                                                                                                                                         
 mysql>   CREATE DATABASE freedomepass;
-3. Εντός του φακέλου TL21-19-master/database εκτέλεση στο cmd:
+3. Εντός του φακέλου TL21-19-master/database εκτέλεση στο cmd:                                                                                                                     
 mysql -p -u root freedomepass < data-dump.sql
 
 ### Εγκατάσταση και εκτέλεση του backend
