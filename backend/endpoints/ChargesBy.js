@@ -25,12 +25,13 @@ function getData4 (req,res){
                 if (req.query.format == 'json')
                   res.send(json);
                 else {
+                  let options = { unwindArrays : true };
                   const parser = require('json-2-csv');
                   let jsonArr = [json];
                   parser.json2csv(jsonArr,function(err,csv) {
                     if (err) throw err;
                     res.send(csv);
-                  });
+                  }, options);
                 }
             });
             con.end(function(err) {

@@ -5,15 +5,6 @@ var mysql = require('mysql');
 const app = express();
 
 function getData (req,res){
-  if(req.query.format == 'csv') {
-    let bodyParser = require("body-parser");
-    require("body-parser-csv")(bodyParser);
-    app.use(bodyParser.csv());
-  }
-  else {
-    let bodyParser = require("body-parser");
-    app.use(bodyParser.json());
-  }
     var con = mysql.createConnection({
         host: "localhost",
         user: "root",
@@ -37,17 +28,18 @@ function getData (req,res){
                      "; SELECT @rownum AS NumberOfPasses;"
         con.query(myquery, function (err, result, fields){
             if (err) throw err;
-            res.send(JSON.stringify({"StationID" : req.params.stationID }) + JSON.stringify(result[2]) + JSON.stringify({"PeriodFrom" : date_from , "PeriodTo" : date_to}) + JSON.stringify(result[1]) + JSON.stringify(result[3]) + JSON.stringify(result[0]));
             let  json = {StationID : req.params.stationID , StationOperator : result[2] , PeriodFrom : date_from , PeriodTo : date_to, NumberOfPasses : result[1], PassesList : result[0]};
+
             if (req.query.format == 'json')
               res.send(json);
             else {
+              let options = { unwindArrays : true };
               const parser = require('json-2-csv');
               let jsonArr = [json];
               parser.json2csv(jsonArr,function(err,csv) {
                 if (err) throw err;
                 res.send(csv);
-              });
+              },options);
             }
         });
         con.end(function(err) {
