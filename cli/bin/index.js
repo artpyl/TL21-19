@@ -5,10 +5,10 @@ const chalk = require('chalk');
 program.version('0.0.1');
 
 //Functions
-const passesperstation = require('../src/passesperstation');
-const passesanalysis = require('../src/passesanalysis');
-const passescost = require('../src/passescost');
-const chargesby = require('../src/chargesby');
+const passesperstation = require('../src/passesperstation.js');
+const passesanalysis = require('../src/passesanalysis.js');
+const passescost = require('../src/passescost.js');
+const chargesby = require('../src/chargesby.js');
 
 /*
 //Healthcheck
