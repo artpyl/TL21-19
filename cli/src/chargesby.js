@@ -18,7 +18,7 @@ module.exports = function(object) {
         console.log(chalk.green('--format |-f               ex: json || csv'));
     }
     if(isReady){
-        let baseUrl = createURL('/ChargesBy/', object.op1, object.datefrom, object.dateto, object.format);
+        let baseUrl = createURL('/ChargesBy/', object.op1, object.datefrom, object.dateto, '',object.format);
         sendRequest('get', baseUrl);
         return;
     }

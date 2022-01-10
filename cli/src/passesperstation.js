@@ -7,7 +7,7 @@ const createURL = require('./utils/createURL.js');
 module.exports = function(object) {
     let isReady = true;
 
-    if (object.station == undefined || object.datefrom == undefined || object.dateto == undefined || object.format != ("csv" || "json")){
+    if (object.station == undefined || object.datefrom == undefined || object.dateto == undefined || (object.format != "csv" && object.format != "json")){
         isReady = false;
         console.log(chalk.red('Missing parameters for this scope'));
         console.log(chalk.green('Needed Parameters:'));
@@ -18,7 +18,7 @@ module.exports = function(object) {
         console.log(chalk.green('--format |-f               ex: json || csv'));
     }
     if(isReady){
-        let baseUrl = createURL('/PassesPerStation/', object.station, object.datefrom, object.dateto, object.format);
+        let baseUrl = createURL('/PassesPerStation/', object.station, object.datefrom, object.dateto, '', object.format);
         sendRequest('get', baseUrl);
         return;
     }
