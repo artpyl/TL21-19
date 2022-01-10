@@ -1,0 +1,27 @@
+{
+  "name": "name",
+  "version": "1.0.0",
+  "description": "",
+  "preferGlobal": true,
+  "main": "bin/index.js",
+  "bin": {
+    "se2119": "./bin/index.js"
+  },
+  "keywords": [
+    "cli-client"
+  ],
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "chalk": "^3.0.0",
+    "commander": "^4.1.0",
+    "form-data": "^3.0.0"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
+}
