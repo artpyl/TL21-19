@@ -28,7 +28,7 @@ function getData (req,res){
                      "; SELECT @rownum AS NumberOfPasses;"
         con.query(myquery, function (err, result, fields){
             if (err) throw err;
-            let  json = {StationID : req.params.stationID , StationOperator : result[2] , PeriodFrom : date_from , PeriodTo : date_to, NumberOfPasses : result[1], PassesList : result[0]};
+            let  json = {StationID : req.params.stationID , StationOperator : result[2] , RequestTimestamp : result[1], PeriodFrom : date_from , PeriodTo : date_to, NumberOfPasses : result[3], PassesList : result[0]};
 
             if (req.query.format == 'json')
               res.send(json);
