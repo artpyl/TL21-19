@@ -13,7 +13,7 @@ const cert = fs.readFileSync('./localhost.crt');
 
 var path = require("path");
 app.get(baseURL,(req,res) =>{
-  res.sendFile(baseURL);
+  res.send("hi");
 });
 
 const https = require('https');
