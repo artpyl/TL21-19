@@ -9,15 +9,18 @@ const passesperstation = require('../src/passesperstation.js');
 const passesanalysis = require('../src/passesanalysis.js');
 const passescost = require('../src/passescost.js');
 const chargesby = require('../src/chargesby.js');
+const healthcheck = require('../src/healthcheck.js');
+const resetpasses = require('../src/resetpasses.js');
+const resetstations = require('../src/resetstations.js');
+const resetvehicles = require('../src/resetvehicles.js');
 const admin = require('../src/admin.js');
 
-/*
+
 //Healthcheck
 program
     .command('healthcheck')
     .alias('hc')
     .description('Health Check')
-    .option('-f, --format [format]', 'json or csv')
     .action(function(cmdObj) {
         healthcheck(cmdObj);
     });
@@ -27,7 +30,6 @@ program
     .command('resetpasses')
     .alias('rp')
     .description('Reset Passes')
-    .option('-f, --format [format]', 'json or csv')
     .action(function(cmdObj) {
         resetpasses(cmdObj);
     });
@@ -37,7 +39,6 @@ program
     .command('resetstations')
     .alias('rs')
     .description('Reset stations')
-    .option('-f, --format [format]', 'json or csv')
     .action(function(cmdObj) {
         resetstations(cmdObj);
     });
@@ -47,11 +48,10 @@ program
     .command('resetvehicles')
     .alias('rv')
     .description('Reset vehicles')
-    .option('-f, --format [format]', 'json or csv')
     .action(function(cmdObj) {
         resetvehicles(cmdObj);
     });
-*/
+
 
 //PassesPerStation
 program
@@ -59,9 +59,9 @@ program
     .alias('pps')
     .description('Passes per station')
     .option('-s, --station [station]', 'Station name')
-    .option('-df, --datefrom [datefrom]', 'YYYYMMDD')
-    .option('-dt, --dateto [dateto]', 'YYYYMMDD')
-    .option('-f, --format [format]', 'json or csv')
+    .option('-f, --datefrom [datefrom]', 'YYYYMMDD')
+    .option('-t, --dateto [dateto]', 'YYYYMMDD')
+    .option('-F, --format [format]', 'json or csv')
     .action(function(cmdObj){
         passesperstation(cmdObj);
     });
@@ -71,11 +71,11 @@ program
     .command('passesanalysis')
     .alias('pa')
     .description('Passes analysis')
-    .option('-o1, --op1 [operator]', 'Operator name')
-    .option('-o2, --op2 [operator]', 'Operator name')
-    .option('-df, --datefrom [date]', 'YYYYMMDD')
-    .option('-dt, --dateto [date]', 'YYYYMMDD')
-    .option('-f, --format [format]', 'json or csv')
+    .option('-1, --op1 [operator]', 'Operator name')
+    .option('-2, --op2 [operator]', 'Operator name')
+    .option('-f, --datefrom [date]', 'YYYYMMDD')
+    .option('-t, --dateto [date]', 'YYYYMMDD')
+    .option('-F, --format [format]', 'json or csv')
     .action(function(cmdObj){
         passesanalysis(cmdObj);
     });
@@ -85,11 +85,11 @@ program
     .command('passescost')
     .alias('pc')
     .description('Passes Cost')
-    .option('-o1, --op1 [operator]', 'Operator name')
-    .option('-o2, --op2 [operator]', 'Operator name')
-    .option('-df, --datefrom [date]', 'YYYYMMDD')
-    .option('-dt, --dateto [date]', 'YYYYMMDD')
-    .option('-f, --format [format]', 'json or csv')
+    .option('-1, --op1 [operator]', 'Operator name')
+    .option('-2, --op2 [operator]', 'Operator name')
+    .option('-f, --datefrom [date]', 'YYYYMMDD')
+    .option('-t, --dateto [date]', 'YYYYMMDD')
+    .option('-F, --format [format]', 'json or csv')
     .action( function(cmdObj) {
         passescost(cmdObj);
     });
@@ -99,60 +99,60 @@ program
     .command('chargesby')
     .alias('cb')
     .description('Charges by')
-    .option('-o1, --op1 [operator]', 'Operator name')
-    .option('-df, --datefrom [date]', 'YYYYMMDD')
-    .option('-dt, --dateto [date]', 'YYYYMMDD')
-    .option('-f, --format [format]', 'json or csv')
+    .option('-1, --op1 [operator]', 'Operator name')
+    .option('-f, --datefrom [date]', 'YYYYMMDD')
+    .option('-t, --dateto [date]', 'YYYYMMDD')
+    .option('-F, --format [format]', 'json or csv')
     .action(function(cmdObj){
         chargesby(cmdObj);
     });
 
 //Admin
 program
-    .command('admin')
+    .command('Admin')
     .alias('a')
     .description('Admin')
-    .option('--passesupd', 'Update passes')
-    .option('--source [filename]', 'Passes from CSV file')
+    .option('-p, --passesupd', 'Update passes')
+    .option('-s, --source [filename]', 'Passes from CSV file')
     .action(function(cmdObj){
         admin(cmdObj);
     });
 
 program.parse(process.argv);
-/*
+
 if( process.argv.length < 3 ){
     console.log(chalk.red('Error! Mandatory parameters not detected'));
     console.log(chalk.green('Choose a scope from:'));
-    console.log(chalk.green('ActualTotalLoad             |atl'));
-    console.log(chalk.green('AggregatedGenerationPerType |agpt'));
-    console.log(chalk.green('DayAheadTotalLoadForecast   |datlf'));
-    console.log(chalk.green('ActualvsForecast            |avsf'));
-    console.log(chalk.green('HealthCheck                 |hc'));
-    console.log(chalk.green('Reset                       |r'));
-    console.log(chalk.green('Admin                       |ad'));
-    console.log(chalk.green('Login                       |li'));
-    console.log(chalk.green('Logout                      |lo'));
+    console.log(chalk.green('healthcheck      |hc'));
+    console.log(chalk.green('resetpasses      |rp'));
+    console.log(chalk.green('resetstations    |rs'));
+    console.log(chalk.green('resetvehicles    |rv'));
+    console.log(chalk.green('passesperstation |pps'));
+    console.log(chalk.green('passesanalysis   |pa'));
+    console.log(chalk.green('passescost       |pc'));
+    console.log(chalk.green('chargesby        |cb'));
+    console.log(chalk.green('Admin            |a'));
     console.log(chalk.green('For more info, type "scope" --help'));
 }
-else if (    process.argv[2] !== 'ActualTotalLoad'
-         &&  process.argv[2] !== 'atl'
-         &&  process.argv[2] !== 'AggregatedGenerationPerType'
-         &&  process.argv[2] !== 'agpt'
-         &&  process.argv[2] !== 'DayAheadTotalLoadForecast'
-         &&  process.argv[2] !== 'datlf'
-         &&  process.argv[2] !== 'ActualvsForecast'
-         &&  process.argv[2] !== 'avsf'
-         &&  process.argv[2] !== 'Admin'
-         &&  process.argv[2] !== 'ad'
-         &&  process.argv[2] !== 'HealthCheck'
+else if (    process.argv[2] !== 'healthcheck'
          &&  process.argv[2] !== 'hc'
-         &&  process.argv[2] !== 'Reset'
-         &&  process.argv[2] !== 'r'
-         &&  process.argv[2] !== 'Login'
-         &&  process.argv[2] !== 'li'
-         &&  process.argv[2] !== 'Logout'
-         &&  process.argv[2] !== 'lo'
+         &&  process.argv[2] !== 'resetpasses'
+         &&  process.argv[2] !== 'rp'
+         &&  process.argv[2] !== 'resetstations'
+         &&  process.argv[2] !== 'rs'
+         &&  process.argv[2] !== 'resetvehicles'
+         &&  process.argv[2] !== 'rv'
+         &&  process.argv[2] !== 'passesperstation'
+         &&  process.argv[2] !== 'pps'
+         &&  process.argv[2] !== 'passesanalysis'
+         &&  process.argv[2] !== 'pa'
+         &&  process.argv[2] !== 'passescost'
+         &&  process.argv[2] !== 'pc'
+         &&  process.argv[2] !== 'chargesby'
+         &&  process.argv[2] !== 'cb'
+         &&  process.argv[2] !== 'Admin'
+         &&  process.argv[2] !== 'a'
 ){
     console.log(chalk.red('Error! Command not supported'));
     console.log(chalk.green('For more info, type --help'));
-}*/
+}
