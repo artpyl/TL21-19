@@ -9,6 +9,7 @@ const passesperstation = require('../src/passesperstation.js');
 const passesanalysis = require('../src/passesanalysis.js');
 const passescost = require('../src/passescost.js');
 const chargesby = require('../src/chargesby.js');
+const admin = require('../src/admin.js');
 
 /*
 //Healthcheck
@@ -105,19 +106,18 @@ program
     .action(function(cmdObj){
         chargesby(cmdObj);
     });
-/*
+
 //Admin
 program
-    .command('Admin')
+    .command('admin')
     .alias('a')
     .description('Admin')
-    .option('-pu, --passesupd --source', 'Update passes')
-    .option('-s, --source [filename]', 'Passes from CSV file')
-    .option('-f, --format [format]', 'json or csv')
+    .option('--passesupd', 'Update passes')
+    .option('--source [filename]', 'Passes from CSV file')
     .action(function(cmdObj){
-        Admin(cmdObj);
+        admin(cmdObj);
     });
-*/
+
 program.parse(process.argv);
 /*
 if( process.argv.length < 3 ){
