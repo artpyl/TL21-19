@@ -5,8 +5,8 @@ const mysql = require('mysql');
 
 const con = mysql.createConnection({
     host: "localhost",
-    user: "art",
-    password: "password",
+    user: "root",
+    password: "root",
     database: "freedomepass",
     multipleStatements: true
 });
@@ -18,7 +18,8 @@ module.exports = function(object) {
         isReady = false;
         console.log(chalk.red('Missing parameters for this scope'));
         console.log(chalk.green('Needed Parameters:'));
-        console.log(chalk.green('--passesupd  && --source              ex: Filename'));
+        console.log(chalk.green('--passesupd |-p'));
+        console.log(chalk.green('--source    |-s          ex: Filename'));
     }
     if(isReady){
       const myArgs = process.argv.slice(2);
