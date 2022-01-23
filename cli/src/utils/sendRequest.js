@@ -1,13 +1,18 @@
+const https = require('https');
 const axios = require('axios');
+const instance = axios.create({ httpsAgent: new https.Agent({ rejectUnauthorized: false }) });
+const agent = new https.Agent({ rejectUnauthorized: false });
+
 const chalk = require('chalk');
 
 module.exports = function(type, url, header, body) {
     switch(type) {
         case 'get':
             if (header === undefined){
-                axios.get(url)
+                instance.get(url)
                 .then(res => console.log(res.data))
                 .catch( err =>{
+                  console.log(url);
                   console.log(chalk.red(err.message));
                   console.log(chalk.red(err.response.data));
                 });
