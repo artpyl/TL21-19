@@ -109,7 +109,7 @@ program
 
 //Admin
 program
-    .command('Admin')
+    .command('admin')
     .alias('a')
     .description('Admin')
     .option('-p, --passesupd', 'Update passes')
@@ -131,7 +131,7 @@ if( process.argv.length < 3 ){
     console.log(chalk.green('passesanalysis   |pa'));
     console.log(chalk.green('passescost       |pc'));
     console.log(chalk.green('chargesby        |cb'));
-    console.log(chalk.green('Admin            |a'));
+    console.log(chalk.green('admin            |a'));
     console.log(chalk.green('For more info, type "scope" --help'));
 }
 else if (    process.argv[2] !== 'healthcheck'
@@ -150,7 +150,7 @@ else if (    process.argv[2] !== 'healthcheck'
          &&  process.argv[2] !== 'pc'
          &&  process.argv[2] !== 'chargesby'
          &&  process.argv[2] !== 'cb'
-         &&  process.argv[2] !== 'Admin'
+         &&  process.argv[2] !== 'admin'
          &&  process.argv[2] !== 'a'
 ){
     console.log(chalk.red('Error! Command not supported'));
