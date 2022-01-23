@@ -22,13 +22,13 @@ function getData (req,res){
         });
         let date_from = req.params.date_from.slice(0,4) +'-' + req.params.date_from.slice(4,6) + '-' + req.params.date_from.slice(6,8) + ' 00:00:00';
         let date_to = req.params.date_to.slice(0,4) +'-' + req.params.date_to.slice(4,6) + '-' + req.params.date_to.slice(6,8) + ' 00:00:00';
-        let myquery = "SELECT (@rownum := @rownum + 1) as PassIndex , passID as PassID, timestamp as PassTimeStamp, vehicleRef as VehicleID, tagProvider as TagProvider, passtype as PassType, charge as PassCharge FROM passes JOIN vehicles WHERE stationRef= " + "'" + req.params.stationID + "'"
+        let myquery = "SELECT (@rownum := @rownum + 1) as PassIndex , passID as PassID, REPLACE(timestamp,'T','') as PassTimeStamp, vehicleRef as VehicleID, tagProvider as TagProvider, passtype as PassType, charge as PassCharge FROM passes JOIN vehicles WHERE stationRef= " + "'" + req.params.stationID + "'"
                      + "AND vehicleID = vehicleRef AND timestamp BETWEEN " + "'" + date_from + "'" + "AND" + "'" + date_to + "'" +
-                     "ORDER BY timestamp; SELECT CURRENT_TIMESTAMP AS RequestTimestamp; SELECT stationProvider as StationOperator FROM stations WHERE stationID =" + "'" + req.params.stationID + "'" +
+                     "ORDER BY timestamp; SELECT REPLACE(CURRENT_TIMESTAMP,'T','') AS RequestTimestamp; SELECT stationProvider as StationOperator FROM stations WHERE stationID =" + "'" + req.params.stationID + "'" +
                      "; SELECT @rownum AS NumberOfPasses;"
         con.query(myquery, function (err, result, fields){
             if (err) throw err;
-            let  json = {StationID : req.params.stationID , StationOperator : result[2] , RequestTimestamp : result[1], PeriodFrom : date_from , PeriodTo : date_to, NumberOfPasses : result[3], PassesList : result[0]};
+            let  json = {Station : req.params.stationID , StationOperator : result[2][0]["StationOperator"] , RequestTimestamp : result[1][0]["RequestTimestamp"], PeriodFrom : date_from , PeriodTo : date_to, NumberOfPasses : result[3][0]["NumberOfPasses"], PassesList : result[0]};
 
             if (req.query.format == 'json')
               res.send(json);

@@ -16,12 +16,12 @@ function getData4 (req,res){
             console.log("connected");
             let date_from = req.params.date_from.slice(0,4) +'-' + req.params.date_from.slice(4,6) + '-' + req.params.date_from.slice(6,8) + ' 00:00:00';
             let date_to = req.params.date_to.slice(0,4) +'-' + req.params.date_to.slice(4,6) + '-' + req.params.date_to.slice(6,8) + ' 00:00:00';
-            let myquery4 = "SELECT tagProvider as VisitingOperator, COUNT(*) as NumberOfPasses, FORMAT(SUM(charge),2) as PassesCost FROM passes, vehicles, stations WHERE stations.stationProvider= " + "'" + req.params.op_ID + "'"
+            let myquery4 = "SELECT tagProvider as VisitingOperator, COUNT(*) as NumberOfPasses, CAST(FORMAT(SUM(charge),2) as FLOAT) as PassesCost FROM passes, vehicles, stations WHERE stations.stationProvider= " + "'" + req.params.op_ID + "'"
                          + "AND vehicles.tagProvider<> " + "'" + req.params.op_ID + "'"
-                         + "AND passes.stationRef = stations.stationID AND passes.vehicleRef = vehicles.vehicleID AND timestamp BETWEEN " + "'" + date_from + "'" + "AND" + "'" + date_to + "'" + "GROUP BY tagProvider; SELECT CURRENT_TIMESTAMP as RequestTimestamp;";
+                         + "AND passes.stationRef = stations.stationID AND passes.vehicleRef = vehicles.vehicleID AND timestamp BETWEEN " + "'" + date_from + "'" + "AND" + "'" + date_to + "'" + "GROUP BY tagProvider; SELECT REPLACE(CURRENT_TIMESTAMP,'T','') as RequestTimestamp;";
             con.query(myquery4, function (err, result, fields){
                 if (err) throw err;
-                let json = {op_ID : req.params.op_ID, RequestTimestamp: result[1], PeriodFrom : date_from , PeriodTo :  date_to , PassesList: result[0]};
+                let json = {op_ID : req.params.op_ID, RequestTimestamp: result[1][0]["RequestTimestamp"], PeriodFrom : date_from , PeriodTo :  date_to , PPOList: result[0]};
                 if (req.query.format == 'json')
                   res.send(json);
                 else {
