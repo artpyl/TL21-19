@@ -29,5 +29,5 @@ function resetstations (req,res){
         });
     });
 }
-router.post('/Admin/ResetStations', resetstations);
+router.post('/admin/resetstations', resetstations);
 module.exports = router;

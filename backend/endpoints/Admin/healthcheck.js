@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 var mysql = require('mysql');
 
-function resetpasses (req,res){
+function healthcheck (req,res){
     var con = mysql.createConnection({
         host: "localhost",
         user: "root",
@@ -12,15 +12,12 @@ function resetpasses (req,res){
     });
 
     con.connect(function(err){
-        if (err) throw err;
+        if (err || con.state === 'disconnected')  {
+          return res.send({status:"failed",dbconnection:"Server=localhost;Database=freedomepass;Uid=root;Pwd=root;" });
+        }
         console.log("connected");
-        let myquery = "DELETE FROM passes"
-        con.query(myquery, function (err, result, fields){
-            if (err) {
-              return res.send({status : "failed"});
-            }
-            res.send({status : "OK"});
-        });
+        res.send({status:"OK",dbconnection:"Server=localhost;Database=freedomepass;Uid=root;Pwd=root;"});
+
         con.end(function(err) {
             if (err) {
             return console.log('error:' + err.message);
@@ -29,6 +26,5 @@ function resetpasses (req,res){
         });
     });
 }
-
-router.post('/admin/resetpasses', resetpasses);
+router.get('/admin/healthcheck', healthcheck);
 module.exports = router;
