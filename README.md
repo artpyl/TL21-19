@@ -31,6 +31,6 @@ mysql -p -u root freedomepass < data-dump.sql
 ### Εγκατάσταση και εκτέλεση του cli
  cd TL21-19-master/cli                                                                                                                                                           
  npm install commander, fs, chalk, fast-csv, mysql                                                                                                                               
- npm install -g.                                                                                                                                                                                                                                                                                                                                                         
+ npm install -g.                                                                                                                                                                                                                                                                                                                                                   
 Εκτέλεση εντολής "se2119" για την εμφάνιση όλων των δυνατών επιλογών.
 
