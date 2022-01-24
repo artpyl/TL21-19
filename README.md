@@ -15,17 +15,23 @@ mysql>   CREATE DATABASE freedomepass;
 mysql -p -u root freedomepass < data-dump.sql
 
 ### Εγκατάσταση και εκτέλεση του backend
-cd TL21-19-master/api                                                                                                                                                               
-npm install body-parser                                                                                                                                                             
-npm install express                                                                                                                                                                
-npm install path                                                                                                                                                                   
+ cd TL21-19-master/api                                                                                                                                                     
+ npm install body-parser                                                                                                                                                         
+ npm install express                                                                                                                                                             
+ npm install path                                                                                                                                                               
                                                                
-cd ../backend                                                                                                                                                                      
-npm install express                                                                                                                                                                 
-npm install mysql                                                                                                                                                                   
-npm install json-2-csv    
-                                    
-cd ../api                                                                                                                                                                           
-node ./index.js                                                                                                                                                                              
+ cd ../backend                                                                                                                                                                   
+ npm install express                                                                                                                                                             
+ npm install mysql                                                                                                                                                               
+ npm install json-2-csv                                     
+ cd ../api                                                                                                                                                                       
+ node ./index.js                                                                                                                                                                   
+Επίσκεψη ιστοσελίδας https://localhost:9103/interoperability/api
 
-Επίσκεψη ιστοσελίδας http://localhost:9103/interoperability/api
+### Εγκατάσταση και εκτέλεση του cli
+ cd TL21-19-master/cli
+ npm install commander, fs, chalk, fast-csv, mysql
+ npm install -g.
+ 
+Εκτέλεση εντολής "se2119" για την εμφάνιση όλων των δυνατών επιλογών.
+
