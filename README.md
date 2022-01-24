@@ -29,8 +29,8 @@ mysql -p -u root freedomepass < data-dump.sql
 Επίσκεψη ιστοσελίδας https://localhost:9103/interoperability/api
 
 ### Εγκατάσταση και εκτέλεση του cli
-         cd TL21-19-master/cli                                                                                                                                                           
+ cd TL21-19-master/cli                                                                                                                                                           
  npm install commander, fs, chalk, fast-csv, mysql                                                                                                                               
- npm install -g.                                                                                                                                                                                                                                                                                                                                                   
+ npm install -g.                                                                                                                                                                                                                                                                                                                                                         
 Εκτέλεση εντολής "se2119" για την εμφάνιση όλων των δυνατών επιλογών.
 
