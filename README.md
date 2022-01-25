@@ -37,6 +37,8 @@ mysql -p -u root freedomepass < data-dump.sql
 Πλοήγηση σε Ρυθμίσεις->Πιστοποιητικά->Προβολή πιστοποιητικών->Αρχές  
 Import το αρχείο CA.pem  
 
+#### Έπειτα
+
 cd /frontend/bin  
 httpd.exe  
 Σύνδεση στο https://localhost  
