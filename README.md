@@ -29,3 +29,8 @@ mysql -p -u root freedomepass < data-dump.sql
  npm install -g.                                                                                                                                                                                                                                                                                                                                                   
 Εκτέλεση εντολής "se2119" για την εμφάνιση όλων των δυνατών επιλογών.
 
+### Εγκατάσταση και εκτέλεση του FrontEnd
+
+cd /frontend/bin
+httpd.exe
+Σύνδεση στο https://localhost
