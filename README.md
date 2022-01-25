@@ -20,7 +20,7 @@ mysql -p -u root freedomepass < data-dump.sql
  3. cd ../backend                                                                                                                                                               
  4. npm install express, mysql, json-2-csv                                     
  5. cd ../api
- 6. 6. node ./index.js      
+ 6. node ./index.js      
 Επίσκεψη ιστοσελίδας https://localhost:9103/interoperability/api
 
 ### Εγκατάσταση και εκτέλεση του cli
@@ -33,16 +33,16 @@ mysql -p -u root freedomepass < data-dump.sql
 
 #### 1. Εγκατάσταση HTTPS
 
-a. Χρήση Mozilla Firefox  
-b. Πλοήγηση σε Ρυθμίσεις->Πιστοποιητικά->Προβολή πιστοποιητικών->Αρχές  
-c. Import το αρχείο CA.pem  
+a) Χρήση Mozilla Firefox  
+b) Πλοήγηση σε Ρυθμίσεις->Πιστοποιητικά->Προβολή πιστοποιητικών->Αρχές  
+c) Import το αρχείο CA.pem  
 
 #### 2. Εκτέλεση του frontend
 
-a. cd ./frontend/conf  
-b. Στο αρχείο httpd του φακέλου αυτού: αλλαγή γραμμής Define SRVROOT "/Apache24" με το path του φακέλου frontend (δηλαδή: "C:\Users\user\TL21-19-master\frontend")  
-c. cd ./frontend/bin  
-d. httpd.exe   
+a) cd ./frontend/conf  
+b) Στο αρχείο httpd του φακέλου αυτού: αλλαγή γραμμής Define SRVROOT "/Apache24" με το path του φακέλου frontend (δηλαδή: "C:\Users\user\TL21-19-master\frontend")  
+c) cd ./frontend/bin  
+d) httpd.exe   
 Σύνδεση στο https://localhost  
  
 ### Εκτέλεση test.py
