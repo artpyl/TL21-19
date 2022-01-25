@@ -31,6 +31,6 @@ mysql -p -u root freedomepass < data-dump.sql
 
 ### Εγκατάσταση και εκτέλεση του FrontEnd
 
-cd /frontend/bin                                                                                                                                                                
-httpd.exe                                                                                                                                                                       
-Σύνδεση στο https://localhost
+ cd /frontend/bin__
+ httpd.exe__
+ Σύνδεση στο https://localhost__
