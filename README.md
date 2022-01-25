@@ -31,7 +31,7 @@ mysql -p -u root freedomepass < data-dump.sql
 
 ### Εγκατάσταση και εκτέλεση του FrontEnd
 
-## Εγκατάσταση HTTPS
+#### Εγκατάσταση HTTPS
 
 Χρήση Mozilla Firefox  
 Πλοήγηση σε Ρυθμίσεις->Πιστοποιητικά->Προβολή πιστοποιητικών->Αρχές  
