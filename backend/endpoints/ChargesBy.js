@@ -5,8 +5,8 @@ var mysql = require('mysql');
 function getData4 (req,res){
     var con = mysql.createConnection({
       host: "localhost",
-      user: "art",
-      password: "password",
+      user: "root",
+      password: "root",
       database: "freedomepass",
       multipleStatements: true
   });
