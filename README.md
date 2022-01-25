@@ -15,40 +15,39 @@ mysql>   CREATE DATABASE freedomepass;
 mysql -p -u root freedomepass < data-dump.sql
 
 ### Εγκατάσταση και εκτέλεση του backend
- cd TL21-19-master/api                                                                                                                                                     
- npm install body-parser, express, path                                                                                                                                                                                                                   
- cd ../backend                                                                                                                                                                   
- npm install express, mysql, json-2-csv                                     
- cd ../api                                                                                                                                                                       
- node ./index.js                                                                                                                                                                   
+ 1. cd TL21-19-master/api                                                                                                                                                     
+ 2. npm install body-parser, express, path                                                                   
+ 3. cd ../backend                                                                                                                                                               
+ 4. npm install express, mysql, json-2-csv                                     
+ 5. cd ../api
+ 6. 6. node ./index.js      
 Επίσκεψη ιστοσελίδας https://localhost:9103/interoperability/api
 
 ### Εγκατάσταση και εκτέλεση του cli
- cd TL21-19-master/cli                                                                                                                                                           
- npm install commander, fs, chalk, fast-csv, mysql                                                                                                                               
- npm install -g.                                                                                                                                                                                                                                                                                                                                                   
+ 1. cd TL21-19-master/cli
+ 2. npm install commander, fs, chalk, fast-csv, mysql
+ 3. npm install -g.  
 Εκτέλεση εντολής "se2119" για την εμφάνιση όλων των δυνατών επιλογών.
 
 ### Εγκατάσταση και εκτέλεση του FrontEnd
 
-#### Εγκατάσταση HTTPS
+#### 1. Εγκατάσταση HTTPS
 
-Χρήση Mozilla Firefox  
-Πλοήγηση σε Ρυθμίσεις->Πιστοποιητικά->Προβολή πιστοποιητικών->Αρχές  
-Import το αρχείο CA.pem  
+a. Χρήση Mozilla Firefox  
+b. Πλοήγηση σε Ρυθμίσεις->Πιστοποιητικά->Προβολή πιστοποιητικών->Αρχές  
+c. Import το αρχείο CA.pem  
 
-#### Εκτέλεση του frontend
+#### 2. Εκτέλεση του frontend
 
-cd ./frontend/conf  
-Στο αρχείο httpd του φακέλου αυτού: αλλαγή γραμμής Define SRVROOT "/Apache24" με το path του φακέλου frontend (δηλαδή: "C:\Users\user\TL21-19-master\frontend")  
-cd ./frontend/bin  
-httpd.exe  
+a. cd ./frontend/conf  
+b. Στο αρχείο httpd του φακέλου αυτού: αλλαγή γραμμής Define SRVROOT "/Apache24" με το path του φακέλου frontend (δηλαδή: "C:\Users\user\TL21-19-master\frontend")  
+c. cd ./frontend/bin  
+d. httpd.exe   
 Σύνδεση στο https://localhost  
  
 ### Εκτέλεση test.py
-
-Εγκατάσταση python3  
-cd /test-cli  
-python test.py
+1. Εγκατάσταση python3
+2. cd /test-cli  
+3. python test.py
  
 
