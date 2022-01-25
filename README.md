@@ -16,14 +16,9 @@ mysql -p -u root freedomepass < data-dump.sql
 
 ### Εγκατάσταση και εκτέλεση του backend
  cd TL21-19-master/api                                                                                                                                                     
- npm install body-parser                                                                                                                                                         
- npm install express                                                                                                                                                             
- npm install path                                                                                                                                                               
-                                                               
+ npm install body-parser, express, path                                                                                                                                                                                                                   
  cd ../backend                                                                                                                                                                   
- npm install express                                                                                                                                                             
- npm install mysql                                                                                                                                                               
- npm install json-2-csv                                     
+ npm install express, mysql, json-2-csv                                     
  cd ../api                                                                                                                                                                       
  node ./index.js                                                                                                                                                                   
 Επίσκεψη ιστοσελίδας https://localhost:9103/interoperability/api
