@@ -35,14 +35,9 @@ mysql -p -u root freedomepass < data-dump.sql
  httpd.exe  
  Σύνδεση στο https://localhost  
  
-### Εκτέλεση test.py
+### Εκτέλεση του testing για το cli (test.py)
 
 Εγκατάσταση python3  
 cd /test-cli  
 python test.py
  
-### Εγκατάσταση HTTPS
-
-Χρήση Mozilla Firefox  
-Πλοήγηση σε Ρυθμίσεις->Πιστοποιητικά->Προβολή πιστοποιητικών->Αρχές
-Import το αρχείο CA.pem
