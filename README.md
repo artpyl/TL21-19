@@ -35,3 +35,9 @@ mysql -p -u root freedomepass < data-dump.sql
  httpd.exe  
  Σύνδεση στο https://localhost  
  
+### Εκτέλεση test.py
+
+Εγκατάσταση python3  
+cd /test-cli  
+python test.py
+ 
