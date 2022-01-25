@@ -39,7 +39,9 @@ Import το αρχείο CA.pem
 
 #### Εκτέλεση του frontend
 
-cd /frontend/bin  
+cd ./frontend/conf  
+Στο αρχείο httpd του φακέλου αυτού: αλλαγή γραμμής Define SRVROOT "/Apache24" με το path του φακέλου frontend (δηλαδή: "C:\Users\user\TL21-19-master\frontend")  
+cd ./frontend/bin  
 httpd.exe  
 Σύνδεση στο https://localhost  
  
