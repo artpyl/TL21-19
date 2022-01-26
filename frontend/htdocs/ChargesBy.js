@@ -12,7 +12,7 @@ function getPasses4(selector) {
 
          var list = getJSONPasses4(op_ID,date_from,date_to).then(list => {
          // Getting the all column names
-         list = list.PassesList;
+         list = list.PPOList;
 
 // Dimiourgia diagrammatos stilwn
 
