@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "d756a107-722f-427e-a8a0-857addccbfc8",
+		"name": "Backend Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PassesPerStation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"pm.test(\"Number Of Passes for AO00 in October 2020 is 8\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.NumberOfPasses).to.eql(8);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "format",
+						"value": "json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{protocol}}://{{baseURL}}:{{port}}/interoperability/api/PassesPerStation/{{stationID}}/{{date_from}}/{{date_to}}?format=json",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"interoperability",
+						"api",
+						"PassesPerStation",
+						"{{stationID}}",
+						"{{date_from}}",
+						"{{date_to}}"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PassesCostOO->KO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"pm.test(\"OO->KO = 8.85 for October 2020\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.PassesCost).to.eql(8.85);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{baseURL}}:{{port}}/interoperability/api/PassesCost/{{op2_ID}}/{{op1_ID}}/{{date_from}}/{{date_to}}?format=json",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"interoperability",
+						"api",
+						"PassesCost",
+						"{{op2_ID}}",
+						"{{op1_ID}}",
+						"{{date_from}}",
+						"{{date_to}}"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PassesCostKO->OO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"pm.test(\"KO->OO = 13.90 for October 2020\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.PassesCost).to.eql(13.8);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{baseURL}}:{{port}}/interoperability/api/PassesCost/{{op1_ID}}/{{op2_ID}}/{{date_from}}/{{date_to}}?format=json",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"interoperability",
+						"api",
+						"PassesCost",
+						"{{op1_ID}}",
+						"{{op2_ID}}",
+						"{{date_from}}",
+						"{{date_to}}"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PassesAnalysis",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{baseURL}}:{{port}}/interoperability/api/PassesAnalysis/{{op1_ID}}/{{op2_ID}}/{{date_from}}/{{date_to}}?format=json",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"interoperability",
+						"api",
+						"PassesAnalysis",
+						"{{op1_ID}}",
+						"{{op2_ID}}",
+						"{{date_from}}",
+						"{{date_to}}"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChargesBy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{baseURL}}:{{port}}/interoperability/api/ChargesBy/{{op_ID}}/{{date_from}}/{{date_to}}?format=json",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"interoperability",
+						"api",
+						"ChargesBy",
+						"{{op_ID}}",
+						"{{date_from}}",
+						"{{date_to}}"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HealthCheck",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "ResetPasses",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "ResetStations",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "ResetVehicles",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "stationID",
+			"value": "AO00",
+			"type": "string"
+		},
+		{
+			"key": "op1_ID",
+			"value": "kentriki_odos",
+			"type": "string"
+		},
+		{
+			"key": "op2_ID",
+			"value": "olympia_odos",
+			"type": "string"
+		},
+		{
+			"key": "op_ID",
+			"value": "aodos\n",
+			"type": "string"
+		},
+		{
+			"key": "date_from",
+			"value": "20200101",
+			"type": "string"
+		},
+		{
+			"key": "date_to",
+			"value": "20210202",
+			"type": "string"
+		},
+		{
+			"key": "protocol",
+			"value": "https",
+			"type": "string"
+		},
+		{
+			"key": "baseURL",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "9103",
+			"type": "string"
+		}
+	]
+}
