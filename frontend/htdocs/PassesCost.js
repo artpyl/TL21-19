@@ -12,7 +12,7 @@ function getPasses3(selector) {
 
          var list = getJSONPasses3(op1_ID,op2_ID,date_from,date_to).then(list => {
          // Getting the all column names
-         list = list.PassesList;
+         list =[list];
 
 
 // Dimiourgia pinaka
