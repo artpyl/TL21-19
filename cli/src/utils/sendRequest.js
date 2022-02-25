@@ -35,7 +35,7 @@ module.exports = function(type, url, header, body) {
             }
         case 'post':
             if(header === undefined){
-                axios.post(url)
+                instance.post(url)
                 .then(res => console.log(res.data))
                 .catch(err => {
                     console.log(chalk.red(err.message));
