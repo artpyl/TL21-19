@@ -1,6 +1,6 @@
 from colorama import Fore, Back, Style, init
-import os
 import json
+import os
 
 init()
 print(Fore.RED + 'Testing CLI: PassesCost' + Style.RESET_ALL)
